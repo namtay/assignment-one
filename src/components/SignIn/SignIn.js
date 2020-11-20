@@ -1,10 +1,28 @@
-import React from 'react';
-import Buttton from "../Button/Button";
+import React,{useState} from 'react';
+import Button from "../Button/Button";
 import SignUpInner  from "../SignUp/SignUpInner";
 
 
 function SignIn()
 {
+    const [value,setValue]= useState({
+        email:"",
+        password:""
+    });
+
+
+       const handleSubmit=(e)=>{
+        e.preventDefault();
+        setValue(e.target.input)
+      
+}
+
+
+const handleSignIn=(event)=>{
+   event.preventDefault();
+    
+
+}
     return(
     <div className="container">      
         <div className="row">
@@ -15,10 +33,11 @@ function SignIn()
                     <SignUpInner name="Email" type="email" labelname="Email"></SignUpInner>
                     <SignUpInner name="Password" type="text" labelname="Password"></SignUpInner>
                     <div className="col-sm-2 ml-auto">
-                      <Button title="SignIn"></Button>
+                      <Button  title="SignIn"></Button>
                      </div> 
                 </form>
-                <div>Already have an account? <a>SignIn</a></div>
+                
+               
             </div>
                     
              </div>

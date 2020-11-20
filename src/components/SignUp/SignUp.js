@@ -1,32 +1,61 @@
-import React from 'react';
+import React,{useState} from 'react';
 import SignUpInner from "./SignUpInner";
- 
-import Button from "../Button/Button"
+import Button from "../Button/Button";
 
-function SignUp(){
+import {Link} from "react-router-dom";
+
+function SignUp(props){
+
+   const [value,setValue]= useState({
+    firstName:"",
+    lastName:"",
+    email:"",
+    password:"",
+    confirmPassword:""
+   })
+
+  const handleChange =(e)=>{
+             setValue(e.target.value)
+   }
+   
 
     return(
-        <div className="container">      
+        <div>
+       
+
+        <div className="container">  
+            
         <div className="row">
-            <div className="col-12 col-md-6 offset-md-3">
+            <div className="col-12 col-md-6 mx-auto">
                 <form>
                 <h3 style={{color:"#212121",textAlign:"center"}}>Create Account</h3>
                 <br/>
-                <SignUpInner name="FirstName" type="text" labelname="First name"></SignUpInner>
-                <SignUpInner name="LastName" type="text" labelname="Last name"></SignUpInner>
-                <SignUpInner name="Email" type="email" labelname="Email"></SignUpInner>
-                <SignUpInner name="Password" type="text" labelname="Password"></SignUpInner>
-                <SignUpInner name="Confirm Password" type="text" labelname="ConfirmPassword"></SignUpInner>
+                <SignUpInner onChange={handleChange} value={value.firstName} name="FirstName" type="text" labelname="First name"></SignUpInner>
+                <SignUpInner onChange={handleChange} value={value.LastName} name="LastName" type="text" labelname="Last name"></SignUpInner>
+                <SignUpInner onChange={handleChange} value={value.email} name="Email" type="email" labelname="Email"></SignUpInner>
+                <SignUpInner onChange={handleChange} value={value.password} name="Password" type="password" labelname="Password"></SignUpInner>
+                <SignUpInner onChange={handleChange} value={value.confirmPassword} name="Confirm Password" type="password" labelname="ConfirmPassword"></SignUpInner>
                 <div className="col-sm-2 ml-auto">
-                    <Button  title="SignUp" style={{backgroundColor: "#448AFF"}}></Button> 
+                <Link to="/SignIn">
+                   <Button  title="SignUp" style={{backgroundColor: "#448AFF"}}></Button> 
+                </Link>
+                    
                 </div>
+               
+                </form >            
+               
                 
-                </form> 
+        
+            
             </div>
         </div>     
                    
              
         </div>
+        
+        </div>
+        
+       
     );
 }
 
