@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import Button from "../Button/Button";
 import SignUpInner  from "../SignUp/SignUpInner";
+import {Link} from "react-router-dom";
 
 
 function SignIn()
@@ -10,19 +11,6 @@ function SignIn()
         password:""
     });
 
-
-       const handleSubmit=(e)=>{
-        e.preventDefault();
-        setValue(e.target.input)
-      
-}
-
-
-const handleSignIn=(event)=>{
-   event.preventDefault();
-    
-
-}
     return(
     <div className="container">      
         <div className="row">
@@ -33,7 +21,10 @@ const handleSignIn=(event)=>{
                     <SignUpInner name="Email" type="email" labelname="Email"></SignUpInner>
                     <SignUpInner name="Password" type="text" labelname="Password"></SignUpInner>
                     <div className="col-sm-2 ml-auto">
-                      <Button  title="SignIn"></Button>
+                    <Link to="/blogPosts">
+                        <Button  title="SignIn"></Button>
+                    </Link>
+                      
                      </div> 
                 </form>
                 
